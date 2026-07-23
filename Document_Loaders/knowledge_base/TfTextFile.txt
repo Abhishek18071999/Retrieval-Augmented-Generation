@@ -1,0 +1,35 @@
+Recommended Timeouts
+The timeouts below are examples / guidelines and are subject to the actual typical response times
+seen at customer's end.
+Each connection to our service involves 2 steps: connection and read. These two steps have
+separate timeouts.
+It is vital that you monitor timeouts and detect/ report any cases where a significant number of
+timeouts are occurring ( e.g. > 0.2%)
+Connection timeouts: (connect means establishing the initial socket connection)
+In normal circumstances, it should be very fast to establish an initial connection. So we
+recommend starting with a timeout of 0.5s. However it is vital to retry at least once, with a longer
+timeout in case there are random/ networking/ system delays or hangs during the first connection.
+We would suggest 1s. If that also times out, it is suggested to retry again with a longer timeout of
+2s. You should consider other possible cases where even longer timeouts may be needed - for
+example if there is a major temporary networking problem that could cause connections to be
+delayed by a few seconds. Also, if your system is running in a location where connectivity is known
+to be slow to the UK, there may be no point starting with a low timeout like 500ms. If you cannot
+Travelfusion.com
+implement any retries at all, then you will need to choose an appropriate 'catchall' connection
+timeout such as 2s. However retries are highly recommended (not more than 3 ideally)
+Data read timeouts: ('Data read' means the time from the successful socket opening, to the last
+byte of the response being read)
+● StartRouting: 4s read timeout, retry once with a 15 seconds timeout
+● CheckRouting: 7s read timeout (and continue with the standard polling process in case of
+a time out)
+● ProcessDetails: 150s read timeout, no retry
+● ProcessTerms: 150s read timeout, no retry
+● StartBooking: 20s read timeout, do NOT retry, instead proceed to CheckBooking
+● CheckBooking: 10s read timeout (and continue with the standard polling process in case
+of a time out)
+It is important that you monitor timeouts and detect/ report any cases where a significant number of
+timeouts are occurring ( e.g. > 0.2%)
+We recommend careful logging of the number and type of timeouts in all cases and a regular check
+of this data to ensure that timeout rates are low. Each retry should be logged separately so that
+you can see how many timeouts occur on the first attempt and how many on each of the
+subsequent retries.

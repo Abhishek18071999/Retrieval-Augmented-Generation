@@ -1,0 +1,12 @@
+langchain
+langchain-core
+langchain-community
+python-dotenv
+ollama
+langchain-ollama
+ipykernel
+pypdf
+langchain-chroma
+chromadb
+langchain_text_splitters
+pypdf
