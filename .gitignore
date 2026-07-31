@@ -1,3 +1,10 @@
 # Environment files
 .env
+.env.*# Python environments
+ReRankingVenv/
+.venv/
+venv/
+
+# Environment variables
+.env
 .env.*
