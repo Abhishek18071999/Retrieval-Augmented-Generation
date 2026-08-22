@@ -1,0 +1,4 @@
+langchain_community
+langchain_core
+pypdf
+pdfminer.six
