@@ -1,0 +1,13 @@
+langchain
+langchain-community
+langchain-chroma
+langchain-openai
+chromadb
+rank-bm25
+python-dotenv
+ipykernel
+ollama
+langchain_ollama
+vectorstores
+langchain_deepseek
+lark

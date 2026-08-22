@@ -2,3 +2,9 @@ loaders_venv/
 __pycache__/
 .ipynb_checkpoints/
 .env
+.env.*
+
+# Python environments
+ReRankingVenv/
+.venv/
+venv/
